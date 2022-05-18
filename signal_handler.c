@@ -1,13 +1,24 @@
 #include "shell.h"
 
 /**
-  * signal_handler - Handles the signals
-  * @sig_id: The identifier of the signal to handle
-  *
-  * Return: Nothing to returns
-  */
-void signal_handler(int sig_id)
+ * signal_handler - handles ctrl + c in runtime
+ * @x: unused value, just for betty
+ *
+ * Return: No return
+ */
+void signal_handler(int x)
 {
-	if (sig_id == SIGINT)
-		write(STDOUT_FILENO, "\n($) ", 5);
+	(void) x;
+	write(1, "\n$ ", 3);
+}
+/**
+ * signal_handler2 - handles ctrl + c during cmd exec
+ * @x: unused value, just for betty
+ *
+ * Return: No return
+ */
+void signal_handler2(int x)
+{
+	(void) x;
+	write(1, "\n", 1);
 }
